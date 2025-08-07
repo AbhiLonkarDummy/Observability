@@ -236,6 +236,6 @@ body {
 
 @layer base {
   h2 {
-    @apply text-lg px-2 font-semibold text-[var(--primary-text-color)];
+    @apply text-lg font-semibold text-[var(--primary-text-color)];
   }
 }

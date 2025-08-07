@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { cardsData } from "../../data/cardsData";
-import WidgetGrid from "../../components/section/Overview/overview";
-import Anomalies from "../../components/section/Anomalies/anomalies";
+import TabView from "../../components/tabview/tabview";
+import GeneralInfo from "../../components/section/GeneralInfo/generalinfo";
 export default function ObservabilityDetails() {
   const { id } = useParams();
   const card = cardsData.find((item) => item.id === parseInt(id));
@@ -12,8 +12,10 @@ export default function ObservabilityDetails() {
 
   return (
     <>
-      <WidgetGrid />
-      <Anomalies />
+      <div className="flex flex-col gap-4">
+        <GeneralInfo data={card} />
+        <TabView />
+      </div>
     </>
   );
 }
