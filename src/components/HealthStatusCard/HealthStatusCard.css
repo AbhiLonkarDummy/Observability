@@ -1,0 +1,25 @@
+.card {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #e4e4e4;
+  background: #fafafa;
+  box-shadow: 0 3px 20px 3px rgba(0, 0, 0, 0.04);
+  will-change: transform, box-shadow; /* Smooth GPU-accelerated animation */
+}
+
+.card-label {
+  font-size: var(--card-label-font-size);
+  font-style: var(--card-label-font-style);
+  font-weight: var(--card-label-font-weight);
+  line-height: var(--card-label-line-height);
+}
+
+.card-heading {
+  font-size: var(--card-heading-font-size);
+  font-weight: var(--card-heading-font-weight);
+  line-height: var(--card-heading-line-height);
+}
+
+.health-info {
+  color: var(--primary-text-color);
+}
