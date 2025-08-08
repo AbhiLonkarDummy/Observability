@@ -5,9 +5,9 @@ import CodeAnalysis from "../../panels/codeanalysis/codeanalysis";
 import Dashboard from "../../panels/dashboard/dashboard";
 export default function TabsIconDemo() {
   return (
-    <div className="">
+    <div className="mb-8">
       <Tabs defaultValue={tabsData[0].value} className="w-full ">
-        <TabsList className="p-1 bg-blue-50 mb-4">
+        <TabsList className="p-1 bg-blue-50">
           {tabsData.map((tab) => (
             <TabsTrigger
               key={tab.value}

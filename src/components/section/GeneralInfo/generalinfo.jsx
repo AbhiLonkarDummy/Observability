@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { MoveLeft, Clock } from "lucide-react";
 export default function GeneralInfo({ data }) {
   if (!data) return null;
   console.log(data);

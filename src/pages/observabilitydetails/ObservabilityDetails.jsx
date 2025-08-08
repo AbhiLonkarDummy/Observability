@@ -12,9 +12,9 @@ export default function ObservabilityDetails() {
 
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col ">
         <GeneralInfo data={card} />
-        <TabView />
+        <TabView className="mt-4" />
       </div>
     </>
   );
