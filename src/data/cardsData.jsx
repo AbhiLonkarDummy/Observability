@@ -9,9 +9,9 @@ export const cardsData = [
     mins_ago: 5,
     tool: "Grafana",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 11 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 7 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 2 },
+      { name: "low", icon: <Flag size={12} />, errCount: 11 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 7 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 2 },
     ],
   },
   {
@@ -22,9 +22,9 @@ export const cardsData = [
     mins_ago: 12,
     tool: "Datadog",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 5 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 4 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 1 },
+      { name: "low", icon: <Flag size={12} />, errCount: 5 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 4 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 1 },
     ],
   },
   {
@@ -35,9 +35,9 @@ export const cardsData = [
     mins_ago: 8,
     tool: "Datadog",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 6 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 3 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 5 },
+      { name: "low", icon: <Flag size={12} />, errCount: 6 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 3 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 5 },
     ],
   },
   {
@@ -48,9 +48,9 @@ export const cardsData = [
     mins_ago: 14,
     tool: "Prometheus",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 9 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 6 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 2 },
+      { name: "low", icon: <Flag size={12} />, errCount: 9 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 6 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 2 },
     ],
   },
   {
@@ -61,9 +61,9 @@ export const cardsData = [
     mins_ago: 3,
     tool: "Splunk",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 2 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 1 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 0 },
+      { name: "low", icon: <Flag size={12} />, errCount: 2 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 1 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 0 },
     ],
   },
   {
@@ -74,9 +74,9 @@ export const cardsData = [
     mins_ago: 20,
     tool: "AppDynamics",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 12 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 5 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 3 },
+      { name: "low", icon: <Flag size={12} />, errCount: 12 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 5 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 3 },
     ],
   },
   {
@@ -87,9 +87,9 @@ export const cardsData = [
     mins_ago: 6,
     tool: "Grafana",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 4 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 2 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 1 },
+      { name: "low", icon: <Flag size={12} />, errCount: 4 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 2 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 1 },
     ],
   },
   {
@@ -100,9 +100,9 @@ export const cardsData = [
     mins_ago: 15,
     tool: "Prometheus",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 7 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 4 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 6 },
+      { name: "low", icon: <Flag size={12} />, errCount: 7 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 4 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 6 },
     ],
   },
   {
@@ -113,9 +113,9 @@ export const cardsData = [
     mins_ago: 10,
     tool: "AppDynamics",
     alerts: [
-      { name: "low", icon: <Flag size={16} />, errCount: 5 },
-      { name: "med", icon: <AlertTriangle size={16} />, errCount: 3 },
-      { name: "high", icon: <OctagonAlert size={16} />, errCount: 1 },
+      { name: "low", icon: <Flag size={12} />, errCount: 5 },
+      { name: "med", icon: <AlertTriangle size={12} />, errCount: 3 },
+      { name: "high", icon: <OctagonAlert size={12} />, errCount: 1 },
     ],
   },
 ];

@@ -1,0 +1,8 @@
+.health-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-auto-rows: auto;
+  row-gap: 0px;
+  column-gap: 16px;
+  transition: all 0.5s ease-in-out;
+}

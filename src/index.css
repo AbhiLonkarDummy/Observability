@@ -76,8 +76,10 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* Custom coloring starts */
-
+  --brand-primary-color: #F97316;
+  --dashboard-muted-bg: #f0f4f7;
   --primary-text-color: #3f3f3f;
+  --primary-icon-color: #4a5565;
 
   /* ? Alert labels */
   --low-alert-bg: #e6f4fa;

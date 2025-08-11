@@ -14,7 +14,7 @@ export default function HealthStatusCard({ card }) {
   return (
     <div
       onClick={() => navigate(`/${card.id}`)}
-      className="card relative h-[360px] w-[360px] p-5 border rounded-lg mt-4 transition-all duration-500 ease-out
+      className="card relative h-[360px]  p-5 border rounded-lg mt-4 transition-all duration-500 ease-out
              hover:shadow-lg hover:-translate-y-1 hover:border-gray-300"
     >
       {/* Card Content */}

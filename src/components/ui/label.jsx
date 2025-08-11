@@ -14,13 +14,22 @@ export const Label = ({ name, icon, errCount }) => {
   return (
     <>
       <div
-        className={`label py-1 px-4 ${
+        className={`label py-0.5 px-2.5 ${
           alertClasses[name] || ""
-        } flex items-center gap-1 flex-1 rounded-sm`}
+        } flex items-center justify-center gap-1 flex-1 rounded-sm`}
       >
-        <span className={`${iconClasses[name] || ""}`}>{icon}</span>
-        <span className="font-bold label">{errCount}</span>
-        <span className="capitalize label">{name}</span>
+        <span
+          className={`${iconClasses[name] || ""}`}
+          style={{ fontSize: "12px", lineHeight: "1" }}
+        >
+          {icon}
+        </span>
+        <span className="font-bold label">
+          {errCount}
+        </span>
+        <span className="capitalize label">
+          {name}
+        </span>
       </div>
     </>
   );
