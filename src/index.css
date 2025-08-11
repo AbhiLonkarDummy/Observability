@@ -164,11 +164,12 @@ body {
   font-family: "Satoshi", sans-serif;
 }
 
-.container {
+/* Need to change this to make the content fit within 1140 px width */
+/* .container {
   width: 1140px;
   padding: 0 10px;
   margin: 0 auto;
-}
+} */
 
 .low-level-alert {
   background-color: var(--low-alert-bg);

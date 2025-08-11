@@ -5,18 +5,16 @@ import CodeAnalysis from "../../panels/codeanalysis/codeanalysis";
 import Dashboard from "../../panels/dashboard/dashboard";
 export default function TabsIconDemo() {
   return (
-    <div className="mb-8">
-      <Tabs defaultValue={tabsData[0].value} className="w-full ">
-        <TabsList className="p-1 bg-blue-50">
+    <div className="mb-8 relative">
+      <Tabs defaultValue={tabsData[0].value} className="!gap-0 flex flex-col">
+        <TabsList className="w-full p-0 bg-background justify-start border-b rounded-none">
           {tabsData.map((tab) => (
             <TabsTrigger
               key={tab.value}
               value={tab.value}
-              className="px-2.5 sm:px-3 transition-all duration-200 data-[state=active]:bg-blue-100 data-[state=active]:text-blue-800"
+              className="rounded-none bg-background h-full data-[state=active]:shadow-none border border-transparent border-b-border data-[state=active]:border-border data-[state=active]:border-b-background -mb-[2px] rounded-t-md"
             >
-              <p className="flex items-center gap-1 text-[13px] [&>svg]:h-4 [&>svg]:w-4">
-                {tab.icon} {tab.name}
-              </p>
+              <p>{tab.name}</p>
             </TabsTrigger>
           ))}
         </TabsList>
