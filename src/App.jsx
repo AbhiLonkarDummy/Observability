@@ -13,7 +13,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<ObservabilityDetails />} />{" "}
+            <Route path="/details/:id" element={<ObservabilityDetails />} />{" "}
           </Routes>
         </Router>
       </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import {
   AudioWaveform,
   BookOpen,
@@ -13,24 +11,11 @@ import {
   SquareTerminal,
 } from "lucide-react";
 
-import { NavMain } from "./nav-main";
-import { NavProjects } from "./nav-projects";
-import { NavUserFooter } from "./nav-user-footer";
-import { TeamSwitcher } from "./team-switcher";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarRail,
-} from "@/components/ui/sidebar";
-
-// This is sample data.
-const data = {
+const userData = {
   user: {
-    name: "shadcn",
+    name: "Aakash",
     email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   teams: [
     {
@@ -155,21 +140,4 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }) {
-  return (
-    <Sidebar className="pt-1" collapsible="icon" {...props}>
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
-      <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-      </SidebarContent>
-      {/* Need to change over here, if I want to add user functionality in the footer */}
-      {/* <SidebarFooter>
-        <NavUserFooter user={data.user} />
-      </SidebarFooter> */}
-      <SidebarRail />
-    </Sidebar>
-  );
-}
+export default userData;

@@ -1,36 +1,21 @@
-export const Label = ({ name, icon, errCount }) => {
-  const alertClasses = {
-    low: "low-level-alert",
-    med: "med-level-alert",
-    high: "high-level-alert",
-  };
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
 
-  const iconClasses = {
-    low: "low-level-alert-icon",
-    med: "med-level-alert-icon",
-    high: "high-level-alert-icon",
-  };
+import { cn } from "@/lib/utils"
 
+function Label({
+  className,
+  ...props
+}) {
   return (
-    <>
-      <div
-        className={`label py-0.5 px-2.5 ${
-          alertClasses[name] || ""
-        } flex items-center justify-center gap-1 flex-1 rounded-sm`}
-      >
-        <span
-          className={`${iconClasses[name] || ""}`}
-          style={{ fontSize: "12px", lineHeight: "1" }}
-        >
-          {icon}
-        </span>
-        <span className="font-bold label">
-          {errCount}
-        </span>
-        <span className="capitalize label">
-          {name}
-        </span>
-      </div>
-    </>
+    <LabelPrimitive.Root
+      data-slot="label"
+      className={cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      )}
+      {...props} />
   );
-};
+}
+
+export { Label }

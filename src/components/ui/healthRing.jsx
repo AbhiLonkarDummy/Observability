@@ -39,56 +39,43 @@ export default function HealthRing({ percentage }) {
   }, [percentage]);
 
   return (
-    <div className="relative w-32 h-32 flex items-center justify-center">
+    <div className="relative w-24 h-24 flex items-center justify-center">
       <svg
         className="absolute inset-0 transform -rotate-90"
-        width="128"
-        height="128"
+        width="96"
+        height="96"
       >
         {/* Background Circle */}
         <circle
-          cx="64"
-          cy="64"
-          r={radius}
+          cx="48"
+          cy="48"
+          r={radius * 0.75}
           stroke="#F3F3F3"
-          strokeWidth="8"
+          strokeWidth="6"
           fill="transparent"
         />
         {/* Progress Circle */}
         <circle
-          cx="64"
-          cy="64"
-          r={radius}
+          cx="48"
+          cy="48"
+          r={radius * 0.75}
           stroke={strokeColor}
-          strokeWidth="8"
+          strokeWidth="6"
           fill="transparent"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
+          strokeDasharray={circumference * 0.75}
+          strokeDashoffset={offset * 0.75}
           strokeLinecap="round"
           className="transition-all duration-[1500ms] ease-out"
         />
       </svg>
 
       {/* Center Content */}
-      <div className="flex flex-col items-center justify-center z-10">
+      <div className="flex flex-col items-center justify-center z-10 scale-75">
         <span className="text-3xl font-bold text-[var(--primary-text-color)]">
           {displayValue}
         </span>
         <span className="text-sm text-[var(--text-muted)]">Health</span>
       </div>
-
-      {/* Pulse Glow Effect */}
-      {/* <div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          top: "6px",
-          left: "6px",
-          right: "6px",
-          bottom: "6px",
-          "--glow-color": strokeColor,
-          animation: "pulseGlow 3s infinite",
-        }}
-      ></div> */}
     </div>
   );
 }

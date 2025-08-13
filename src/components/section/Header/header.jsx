@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import "./header.css";
+import { Plus, Search } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,9 +12,32 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
-import { Search } from "lucide-react";
 import FilterDropdown from "../../ui/filterdropdown";
-export default function Header() {
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+
+export default function Header({ onAddApplicationClick }) {
+  const [open, setOpen] = useState(false);
+  const [appName, setAppName] = useState("");
+  const [projectLink, setProjectLink] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("App Name:", appName);
+    console.log("Project Link:", projectLink);
+
+    setOpen(false);
+    setAppName("");
+    setProjectLink("");
+  };
   return (
     <div className="flex mt-2 justify-between items-center">
       <Breadcrumb>
@@ -32,9 +59,9 @@ export default function Header() {
             type="text"
             placeholder="Search..."
             className="pl-9 pr-3 py-2 bg-white border border-gray-300 rounded-md text-sm 
-                 placeholder-gray-500 text-gray-700 
-                 focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary-color)]/40 
-                 w-60"
+                  placeholder-gray-500 text-gray-700 
+                  focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary-color)]/40 
+                  w-60"
           />
         </div>
 
@@ -49,7 +76,69 @@ export default function Header() {
             { label: "Last updated", value: "updated" },
           ]}
         />
+        <button
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-2 px-4 py-2 bg-[var(--brand-primary-color)] text-white rounded-md text-sm font-semibold hover:bg-blue-700 transition cursor-pointer"
+        >
+          <Plus className="h-4 w-4" />
+          Add Application
+        </button>
       </div>
+
+      {/* Modal */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add New Application</DialogTitle>
+          </DialogHeader>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid gap-3">
+              <Label htmlFor="appName">Application Name</Label>
+              <input
+                id="appName"
+                value={appName}
+                onChange={(e) => setAppName(e.target.value)}
+                placeholder="Analytics Platform Service"
+                required
+                className="pl-3 pr-3 py-2 bg-white border border-gray-300 rounded-md text-sm 
+                  placeholder-gray-500 text-gray-700 
+                  focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary-color)]/40 "
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="projectLink">Project Link</Label>
+
+              <input
+                id="projectLink"
+                value={projectLink}
+                onChange={(e) => setProjectLink(e.target.value)}
+                placeholder="https://example.com"
+                required
+                className="pl-3 pr-3 py-2 bg-white border border-gray-300 rounded-md text-sm 
+                  placeholder-gray-500 text-gray-700 
+                  focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary-color)]/40 
+                  "
+              />
+            </div>
+            <DialogFooter>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setOpen(false)}
+                className="cursor-pointer"
+              >
+                Cancel
+              </Button>
+              <Button
+                type="submit"
+                className="bg-[var(--brand-primary-color)] hover:bg-blue-700 transition text-white cursor-pointer"
+              >
+                Save
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
     // <header className="w-full flex items-center justify-between py-4 mt-4 ">
     //   {/* Left: Dashboard Title */}

@@ -17,7 +17,7 @@ export default function FilterDropdown({ options }) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md 
+          className="cursor-pointer flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md 
              bg-white text-sm text-gray-700
              hover:bg-gray-50
              focus:outline-none 

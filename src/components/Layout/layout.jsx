@@ -1,7 +1,9 @@
-import { Bell, Plus } from "lucide-react";
+import { Bell, Plus, UserPlus } from "lucide-react";
 import { AppSidebar } from "../ui/app-sidebar";
 import Header from "../section/Header/header";
 import DarkModeToggle from "../DarkMode/darkmodetoggle";
+import { NavUserHeader } from "../ui/nav-user-header";
+import userData from "../../data/userData";
 import {
   SidebarInset,
   SidebarProvider,
@@ -23,12 +25,21 @@ export default function MainLayout({ children }) {
                   {/* <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span> */}
                 </button>
                 <DarkModeToggle />
+
+                {/* Sign up button goes over here */}
+                {/* <button
+                  onClick={() => setOpen(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-[var(--brand-primary-color)] text-white rounded-md text-sm font-semibold hover:bg-blue-700 transition cursor-pointer"
+                >
+                  <UserPlus className="h-4 w-4" />
+                  Sign Up
+                </button> */}
+
+                {/* The user button goes over here */}
+                <NavUserHeader user={userData.user} />
               </div>
 
-              <button className="flex items-center gap-2 px-4 py-2 bg-[var(--brand-primary-color)] text-white rounded-md text-sm font-semibold hover:bg-blue-700 transition">
-                <Plus className="h-4 w-4" />
-                Add Application
-              </button>
+              {/* Need to add signup/login button here */}
             </div>
             {/* <Separator
               orientation="vertical"
@@ -37,7 +48,7 @@ export default function MainLayout({ children }) {
           </div>
         </header>
         {/* Need to change this in order to set a custom path  */}
-        <Header />
+        <Header onAddApplicationClick={() => setIsModalOpen(true)} />
 
         {children}
         {/* Sidebar is supposed to be common, so its supposed to be used across the home as well as the observability details page  */}

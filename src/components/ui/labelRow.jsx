@@ -1,4 +1,4 @@
-import { Label } from "./label";
+import { Label } from "../Label/label";
 import { Flag, AlertTriangle, OctagonAlert } from "lucide-react";
 const alertData = [
   {
