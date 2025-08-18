@@ -34,9 +34,9 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Neutrino Tech Labs",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "Software and Development",
     },
     {
       name: "Acme Corp.",

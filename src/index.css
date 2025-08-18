@@ -76,7 +76,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* Custom coloring starts */
-  --brand-primary-color: #2563EB;
+  --brand-primary-color: #2563eb;
   --brand-muted-color: #bbcff9;
   /* --brand-primary-color: #F97316; */
   --dashboard-muted-bg: #f0f4f7;
@@ -239,9 +239,10 @@ body {
   /* box-shadow: 0 3px 20px 3px rgba(0, 0, 0, 0.04); */
 }
 
-
-
 @layer base {
+  h1 {
+    @apply text-2xl font-bold text-[var(--primary-text-color)];
+  }
   h2 {
     @apply text-lg font-semibold text-[var(--primary-text-color)];
   }

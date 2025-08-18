@@ -1,6 +1,5 @@
 import { Bell, Plus, UserPlus } from "lucide-react";
 import { AppSidebar } from "../ui/app-sidebar";
-import Header from "../section/Header/header";
 import DarkModeToggle from "../DarkMode/darkmodetoggle";
 import { NavUserHeader } from "../ui/nav-user-header";
 import userData from "../../data/userData";
@@ -48,7 +47,6 @@ export default function MainLayout({ children }) {
           </div>
         </header>
         {/* Need to change this in order to set a custom path  */}
-        <Header onAddApplicationClick={() => setIsModalOpen(true)} />
 
         {children}
         {/* Sidebar is supposed to be common, so its supposed to be used across the home as well as the observability details page  */}

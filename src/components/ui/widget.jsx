@@ -1,13 +1,14 @@
 export default function Widget({ title, value, percentage, isPositive, icon }) {
   return (
-    <div className="widget-card relative p-4 rounded-lg border bg-[#fafafa]">
+    <div className="widget-card relative p-4 rounded-lg border bg-[#F9FAFB]">
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
           <div className="flex justify-between items-center">
             <div className="text-sm font-medium text-[var(--text-muted-1)]">
               {title}
             </div>
-            {icon}
+            {/* Need to add an icon here */}
+            {/* {icon} */}
           </div>
           <div className="text-3xl font-semibold text-[var(--primary-text-color)]">
             {value}
@@ -16,8 +17,9 @@ export default function Widget({ title, value, percentage, isPositive, icon }) {
 
         <div className="flex items-center gap-2">
           <div
-            className="text-xs font-medium inline-block px-2 py-1 rounded-md"
+            className="text-xs font-medium inline-block px-2 py-1 rounded-md text-center"
             style={{
+              minWidth: "72px", // adjust as needed
               backgroundColor: isPositive
                 ? "var(--positive-alert-bg)"
                 : "var(--high-alert-bg)",
@@ -26,8 +28,9 @@ export default function Widget({ title, value, percentage, isPositive, icon }) {
                 : "var(--high-alert-text)",
             }}
           >
-            {isPositive ? "▲" : "▼"} {percentage}%
+            {isPositive ? "▲" : "▼"} {Math.abs(Number(percentage))}%
           </div>
+
           <p className="text-sm font-medium text-[var(--text-muted-2)]">
             {isPositive ? "Up" : "Down"} from yesterday
           </p>

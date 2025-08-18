@@ -3,18 +3,9 @@
 import { useState } from "react";
 import "./header.css";
 import { Plus, Search } from "lucide-react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+
 import FilterDropdown from "../../ui/filterdropdown";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Dialog,
@@ -23,6 +14,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { DynamicBreadcrumb } from "../../ui/dynamic-breadcrumb";
 
 export default function Header({ onAddApplicationClick }) {
   const [open, setOpen] = useState(false);
@@ -40,7 +32,8 @@ export default function Header({ onAddApplicationClick }) {
   };
   return (
     <div className="flex mt-2 justify-between items-center">
-      <Breadcrumb>
+      <DynamicBreadcrumb />
+      {/* <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem className="hidden md:block">
             <BreadcrumbLink href="#">Building Your Application</BreadcrumbLink>
@@ -50,7 +43,7 @@ export default function Header({ onAddApplicationClick }) {
             <BreadcrumbPage>Data Fetching</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumb>
+      </Breadcrumb> */}
       <div className="flex items-center gap-3">
         {/* Search Input */}
         <div className="relative">
