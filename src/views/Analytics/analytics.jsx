@@ -1,5 +1,6 @@
 import AnalyticsPieChart from "../../components/Charts/AnalyticsPieChart/AnalyticsPieChart";
 import AnomalyAreaChart from "../../components/Charts/AreaChart/AreaChart";
+import Anomalies from "../../components/section/Anomalies/anomalies";
 import Guage from "../../components/Charts/Guage/Guage";
 export default function AnalyticsView() {
   return (
@@ -28,10 +29,8 @@ export default function AnalyticsView() {
           </div>
 
           {/* Row 3: full width */}
-          <div className="col-span-3">
-            <div className="bg-gray-50 border rounded-md p-6">
-              Row 3 Widget (full width)
-            </div>
+          <div className="col-span-3 mt-2">
+            <Anomalies />
           </div>
         </div>
       </div>
