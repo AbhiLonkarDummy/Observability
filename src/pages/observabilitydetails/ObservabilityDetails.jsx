@@ -10,7 +10,7 @@ import { DynamicBreadcrumb } from "../../components/ui/dynamic-breadcrumb";
 import Tabs from "../../components/Tabs/Tabs";
 import AnalyticsView from "../../views/Analytics/analytics";
 import RootCauseView from "../../views/RootCause/rootcause";
-import Anomalies from "../../views/Anomalies/Anomalies";
+import AnomaliesView from "../../views/Anomalies/Anomalies";
 import CodeAnalysisView from "../../views/CodeAnalysis/codeanalysis";
 
 export default function ObservabilityDetails() {
@@ -26,7 +26,7 @@ export default function ObservabilityDetails() {
       case "code":
         return <CodeAnalysisView />;
       case "anomalies":
-        return <Anomalies />;
+        return <AnomaliesView />;
       default:
         return null;
     }
