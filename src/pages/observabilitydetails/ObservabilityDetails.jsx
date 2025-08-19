@@ -10,7 +10,7 @@ import { DynamicBreadcrumb } from "../../components/ui/dynamic-breadcrumb";
 import Tabs from "../../components/Tabs/Tabs";
 import AnalyticsView from "../../views/Analytics/analytics";
 import RootCauseView from "../../views/RootCause/rootcause";
-import AnomaliesView from "../../views/Anomalies/Anomalies";
+import AnomaliesView from "../../views/Anomalies/DummyAnomalies";
 import CodeAnalysisView from "../../views/CodeAnalysis/codeanalysis";
 
 export default function ObservabilityDetails() {
