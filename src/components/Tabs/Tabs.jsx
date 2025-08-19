@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { BarChart2, Search, Code } from "lucide-react";
+import { BarChart2, Search, Code, Activity } from "lucide-react";
 
 const tabs = [
   { id: "analytics", label: "Analytics", icon: BarChart2 },
+  { id: "anomalies", label: "Anomalies", icon: Activity },
   { id: "rootCause", label: "Root Cause Analysis", icon: Search },
   { id: "code", label: "Code Analysis", icon: Code },
 ];
@@ -23,7 +24,7 @@ export default function Tabs({ onTabChange }) {
           <button
             key={id}
             onClick={() => handleTabClick(id)}
-            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors border-b-2
+            className={`flex items-center gap-2 cursor-pointer px-4 py-2 text-sm font-medium transition-colors border-b-2
               ${
                 activeTab === id
                   ? "border-[#2563eb] text-[#2563eb]"

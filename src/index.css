@@ -84,10 +84,15 @@
   --primary-icon-color: #4a5565;
 
   /* ? Alert labels */
+  /* --low-alert-bg: #ecfdf5;
+  --low-alert-icon: #059669;
+  --low-alert-text: #047857 */
+  /* Blue */
   --low-alert-bg: #e6f4fa;
   --low-alert-icon: #0284c7;
   --low-alert-text: #0369a1;
 
+  --col: #fcfcfc;
   --med-alert-bg: #fff4e5;
   --med-alert-icon: #f59e0b;
   --med-alert-text: #b45309;

@@ -8,7 +8,7 @@ export default function AnalyticsPieChart({ low, medium, high }) {
     {
       name: "Low",
       value: low,
-      fill: "#22c55e", // soft mint green
+      fill: "#0EA5E9", // soft blue
       textColor: "#FFFFFF", // dark emerald
     },
     {

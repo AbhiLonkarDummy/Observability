@@ -1,71 +1,46 @@
-export default function AnomaliesRecordDetail({ record }) {
-  // Function to get alert colors based on score
+// components/ui/rca-record-details.js
+import React from "react";
+
+export default function RcaRecordDetail({ record }) {
   const getScoreColors = (score) => {
-    if (score <= 33) {
-      return {
-        bg: "#fee2e2",
-        text: "#b91c1c",
-        label: "High",
-      };
-    } else if (score <= 67) {
-      return {
-        bg: "#fff4e5",
-        text: "#b45309",
-        label: "Med",
-      };
+    if (score >= 80) {
+      return { bg: "#e6f4fa", text: "#0369a1" };
+    } else if (score >= 50) {
+      return { bg: "#fff4e5", text: "#b45309" };
     } else {
-      return {
-        bg: "#e6f4fa",
-        text: "#0369a1",
-        label: "Low",
-      };
+      return { bg: "#fee2e2", text: "#b91c1c" };
     }
   };
 
-  // Function to get urgency colors
-  const getUrgencyColors = (urgency) => {
-    switch (urgency?.toLowerCase()) {
-      case "low":
-        return {
-          bg: "#e6f4fa",
-          text: "#0369a1",
-        };
-      case "medium":
-      case "med":
-        return {
-          bg: "#fff4e5",
-          text: "#b45309",
-        };
+  const getSeverityColors = (severity) => {
+    switch (severity?.toLowerCase()) {
       case "high":
-        return {
-          bg: "#fee2e2",
-          text: "#b91c1c",
-        };
       case "critical":
-        return {
-          bg: "#fdf2f8",
-          text: "#be185d",
-        };
+        return { bg: "#fee2e2", text: "#b91c1c" };
+      case "medium":
+        return { bg: "#fff4e5", text: "#b45309" };
+      case "low":
+        return { bg: "#e6f4fa", text: "#0369a1" };
       default:
-        return {
-          bg: "#f3f4f6",
-          text: "#6b7280",
-        };
+        return { bg: "#f3f4f6", text: "#6b7280" };
     }
   };
 
   const scoreColors = getScoreColors(record.score);
-  const urgencyColors = getUrgencyColors(record.urgency);
+  const severityColors = getSeverityColors(record.severity);
 
   return (
     <div className="w-full overflow-hidden">
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-white ">
         {/* Header Section */}
         <div className="flex justify-between items-start gap-3 mb-4 pb-3 border-b border-gray-200">
           <div className="flex-1 min-w-0">
             <h3 className="text-base font-semibold text-gray-800 mb-1 break-words">
               {record.title}
             </h3>
+            <p className="text-sm text-gray-600 break-words">
+              {record.description}
+            </p>
           </div>
           <div className="flex gap-2 flex-shrink-0">
             <span
@@ -80,11 +55,11 @@ export default function AnomaliesRecordDetail({ record }) {
             <span
               className="px-2 py-1 rounded-sm text-sm font-medium"
               style={{
-                backgroundColor: urgencyColors.bg,
-                color: urgencyColors.text,
+                backgroundColor: severityColors.bg,
+                color: severityColors.text,
               }}
             >
-              {record.urgency}
+              {record.severity}
             </span>
           </div>
         </div>
@@ -128,7 +103,7 @@ export default function AnomaliesRecordDetail({ record }) {
         </div>
 
         {/* Recommended Solution Section */}
-        <div>
+        <div className="mb-6">
           <h4 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
             <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
             Recommended Solution
@@ -137,6 +112,38 @@ export default function AnomaliesRecordDetail({ record }) {
             <p className="text-sm text-gray-700 break-words whitespace-normal leading-relaxed">
               {record.recommendedSolution}
             </p>
+          </div>
+        </div>
+
+        {/* Action Items Section */}
+        <div>
+          <h4 className="text-base font-semibold text-gray-800 mb-3 flex items-center">
+            <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+            Action Items
+          </h4>
+          <div className="space-y-2">
+            {record.actionItems?.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex justify-between items-center p-2 bg-gray-50 rounded"
+              >
+                <span className="text-sm text-gray-700">{item.title}</span>
+                <div className="flex gap-2">
+                  <span className="text-xs text-gray-500">{item.assignee}</span>
+                  <span
+                    className={`px-2 py-1 rounded text-xs font-medium ${
+                      item.status === "Completed"
+                        ? "bg-green-100 text-green-800"
+                        : item.status === "In Progress"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-yellow-100 text-yellow-800"
+                    }`}
+                  >
+                    {item.status}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

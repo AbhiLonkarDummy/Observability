@@ -1,7 +1,7 @@
 import AnalyticsPieChart from "../../components/Charts/AnalyticsPieChart/AnalyticsPieChart";
 import AnomalyAreaChart from "../../components/Charts/AreaChart/AreaChart";
-import Anomalies from "../../components/section/Anomalies/anomalies";
 import Guage from "../../components/Charts/Guage/Guage";
+import { ChartRadarGridCircle } from "../../components/Charts/RadarChart/RadarChart";
 export default function AnalyticsView() {
   return (
     <>
@@ -12,15 +12,13 @@ export default function AnalyticsView() {
         <div className="grid grid-cols-3 gap-4 w-full">
           {/* Row 1: 3 columns */}
           <div className="col-span-1">
-            <AnalyticsPieChart low={10} medium={20} high={9} />
-          </div>
-          <div className="col-span-1">
             <Guage value={80}></Guage>
           </div>
           <div className="col-span-1">
-            <div className="bg-gray-50 border rounded-md p-4 h-full flex items-center justify-center">
-              Widget 3
-            </div>
+            <AnalyticsPieChart low={10} medium={20} high={9} />
+          </div>
+          <div className="col-span-1">
+            <ChartRadarGridCircle></ChartRadarGridCircle>
           </div>
 
           {/* Row 2: full width */}
@@ -29,9 +27,6 @@ export default function AnalyticsView() {
           </div>
 
           {/* Row 3: full width */}
-          <div className="col-span-3 mt-2">
-            <Anomalies />
-          </div>
         </div>
       </div>
     </>

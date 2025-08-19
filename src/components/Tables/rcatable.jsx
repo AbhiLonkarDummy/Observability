@@ -1,8 +1,9 @@
 "use client";
 import { ArrowUpDown, Search, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import anomaliesData from "../../../data/anomaliesData";
-import FilterDropdown from "../../ui/filterdropdown";
+import rcaData from "../../data/rcaData";
+import RcaRecordDetail from "../ui/rca-record-details";
+import FilterDropdown from "../ui/filterdropdown";
 import {
   Table,
   TableBody,
@@ -12,12 +13,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function Anomalies() {
+export default function RcaTable() {
   const [openRow, setOpenRow] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 10;
-  const totalPages = Math.ceil(anomaliesData.length / itemsPerPage);
+  const totalPages = Math.ceil(rcaData.length / itemsPerPage);
 
   const toggleRow = (id) => {
     setOpenRow(openRow === id ? null : id);
@@ -32,7 +33,7 @@ export default function Anomalies() {
       return "bg-[var(--high-alert-bg)] text-[var(--high-alert-text)]";
     }
 
-    if (type === "urgency") {
+    if (type === "severity") {
       if (value === "Low")
         return "bg-[var(--low-alert-bg)] text-[var(--low-alert-text)]";
       if (value === "Medium")
@@ -44,8 +45,8 @@ export default function Anomalies() {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <div className="anomalies-header flex justify-between items-center">
-          <h2>Anomalies</h2>
+        <div className="rca-header flex justify-between items-center">
+          <h2 className="text-xl font-semibold">Root Cause Analysis</h2>
           <div className="flex items-center gap-3">
             <div className="relative">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
@@ -59,14 +60,15 @@ export default function Anomalies() {
               options={[
                 { label: "Component", value: "component" },
                 { label: "Score", value: "score" },
-                { label: "Urgency", value: "urgency" },
+                { label: "Severity", value: "severity" },
+                { label: "Status", value: "status" },
               ]}
             />
           </div>
         </div>
 
-        <div className="anomalies-table">
-          <div className="w-full border rounded-lg ">
+        <div className="rca-table">
+          <div className="w-full border rounded-lg">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -88,20 +90,25 @@ export default function Anomalies() {
                   </TableHead>
                   <TableHead className="font-semibold">
                     <div className="flex items-center gap-1.5 whitespace-nowrap">
-                      Urgency
+                      Severity
                       <ArrowUpDown className="h-4 w-4 text-gray-400" />
                     </div>
                   </TableHead>
                   <TableHead className="font-semibold">
                     <div className="flex items-center gap-1.5 whitespace-nowrap">
-                      Messages
+                      Status
+                    </div>
+                  </TableHead>
+                  <TableHead className="font-semibold">
+                    <div className="flex items-center gap-1.5 whitespace-nowrap">
+                      Title
                     </div>
                   </TableHead>
                 </TableRow>
               </TableHeader>
 
               <TableBody>
-                {anomaliesData
+                {rcaData
                   .slice(
                     (currentPage - 1) * itemsPerPage,
                     currentPage * itemsPerPage
@@ -139,23 +146,36 @@ export default function Anomalies() {
                         <TableCell>
                           <span
                             className={`px-2 py-1 rounded-sm text-sm font-medium ${getBadgeClasses(
-                              "urgency",
-                              record.urgency
+                              "severity",
+                              record.severity
                             )}`}
                           >
-                            {record.urgency}
+                            {record.severity}
                           </span>
                         </TableCell>
-                        <TableCell>{record.message}</TableCell>
+                        <TableCell>
+                          <span
+                            className={`px-2 py-1 rounded-sm text-sm font-medium ${
+                              record.status === "Resolved"
+                                ? "bg-green-100 text-green-800"
+                                : record.status === "In Progress"
+                                ? "bg-blue-100 text-blue-800"
+                                : "bg-yellow-100 text-yellow-800"
+                            }`}
+                          >
+                            {record.status}
+                          </span>
+                        </TableCell>
+                        <TableCell className="max-w-xs truncate">
+                          {record.title}
+                        </TableCell>
                       </TableRow>
                       {openRow === record.id && (
-                        <TableRow className="bg-muted/20">
-                          <TableCell></TableCell>
-                          <TableCell
-                            colSpan={5}
-                            className="text-sm text-muted-foreground"
-                          >
-                            {record.details}
+                        <TableRow>
+                          <TableCell colSpan={7} className="p-0 border-0">
+                            <div className="w-full table-fixed">
+                              <RcaRecordDetail record={record} />
+                            </div>
                           </TableCell>
                         </TableRow>
                       )}
@@ -170,7 +190,7 @@ export default function Anomalies() {
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
+              className="cursor-pointer px-3 py-1 text-sm border rounded disabled:opacity-50"
             >
               Prev
             </button>
@@ -182,7 +202,7 @@ export default function Anomalies() {
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }
               disabled={currentPage === totalPages}
-              className="px-3 py-1 text-sm border rounded disabled:opacity-50"
+              className="cursor-pointer px-3 py-1 text-sm border rounded disabled:opacity-50"
             >
               Next
             </button>

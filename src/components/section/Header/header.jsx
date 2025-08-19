@@ -19,6 +19,7 @@ import { DynamicBreadcrumb } from "../../ui/dynamic-breadcrumb";
 export default function Header({ onAddApplicationClick }) {
   const [open, setOpen] = useState(false);
   const [appName, setAppName] = useState("");
+  const [teamName, setTeamName] = useState("");
   const [projectLink, setProjectLink] = useState("");
 
   const handleSubmit = (e) => {
@@ -92,6 +93,19 @@ export default function Header({ onAddApplicationClick }) {
                 value={appName}
                 onChange={(e) => setAppName(e.target.value)}
                 placeholder="Analytics Platform Service"
+                required
+                className="pl-3 pr-3 py-2 bg-white border border-gray-300 rounded-md text-sm 
+                  placeholder-gray-500 text-gray-700 
+                  focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary-color)]/40 "
+              />
+            </div>
+            <div className="grid gap-3">
+              <Label htmlFor="appName">Team Name</Label>
+              <input
+                id="appName"
+                value={teamName}
+                onChange={(e) => setTeamName(e.target.value)}
+                placeholder="Analytics Team"
                 required
                 className="pl-3 pr-3 py-2 bg-white border border-gray-300 rounded-md text-sm 
                   placeholder-gray-500 text-gray-700 

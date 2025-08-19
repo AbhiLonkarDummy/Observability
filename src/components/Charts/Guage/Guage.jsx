@@ -1,7 +1,6 @@
 "use client";
 
 import GaugeComponent from "react-gauge-component";
-import { TrendingUp } from "lucide-react";
 
 export default function GaugeCard({ value, total = 100 }) {
   let level = "";
@@ -15,8 +14,9 @@ export default function GaugeCard({ value, total = 100 }) {
     levelColor = "text-yellow-600";
   } else {
     level = "Healthy";
-    levelColor = "text-green-600";
+    levelColor = "text-sky-600"; // ✅ updated to blue instead of green
   }
+
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6 flex flex-col gap-4">
       {/* Header */}
@@ -28,12 +28,11 @@ export default function GaugeCard({ value, total = 100 }) {
       </div>
 
       {/* Gauge Chart */}
-
       <div className="flex flex-col items-center gap-4">
-        <div className="guage-container flex flex-col gap-0 items-center">
+        <div className="gauge-container flex flex-col gap-0 items-center">
           <GaugeComponent
             value={value}
-            type="semicircle" // ✅ semicircle gauge
+            type="semicircle"
             labels={{
               tickLabels: {
                 type: "outer",
@@ -53,19 +52,13 @@ export default function GaugeCard({ value, total = 100 }) {
               },
               valueLabel: {
                 hide: true,
-                //   style: {
-                //     fontSize: "28px",
-                //     fontWeight: "700",
-                //     fill: "#111827", // gray-900
-                //   },
-                //   formatTextValue: (val) => `${val}%`,
               },
             }}
             arc={{
               subArcs: [
-                { limit: 33, color: "#ef4444" }, // red
-                { limit: 66, color: "#facc15" }, // yellow
-                { limit: 100, color: "#22c55e" }, // green
+                { limit: 33, color: "#ef4444" }, // Critical - red
+                { limit: 66, color: "#facc15" }, // Warning - yellow
+                { limit: 100, color: "#0EA5E9" }, // Healthy - blue
               ],
               padding: 0,
               width: 0.35,
@@ -81,9 +74,10 @@ export default function GaugeCard({ value, total = 100 }) {
               animationEase: "easeInOutCubic",
             }}
           />
-          <div className="text-2xl font-bold ">{value}%</div>
+          <div className="text-2xl font-bold">{value}%</div>
         </div>
 
+        {/* Legend */}
         <div className="flex gap-6 text-sm">
           <div className="flex items-center gap-2">
             <div
@@ -102,7 +96,7 @@ export default function GaugeCard({ value, total = 100 }) {
           <div className="flex items-center gap-2">
             <div
               className="w-3 h-3"
-              style={{ backgroundColor: "#22c55e" }}
+              style={{ backgroundColor: "#0EA5E9" }}
             ></div>
             <span className="font-medium text-gray-700">Healthy (67–100%)</span>
           </div>

@@ -1,6 +1,6 @@
 export default function Widget({ title, value, percentage, isPositive, icon }) {
   return (
-    <div className="widget-card relative p-4 rounded-lg border bg-[#F9FAFB]">
+    <div className="widget-card relative p-4 rounded-lg border bg-[#fcfcfc]">
       <div className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
           <div className="flex justify-between items-center">

@@ -87,10 +87,10 @@ export default function AnomalyAreaChart({ data }) {
                 <stop offset="95%" stopColor="#facc15" stopOpacity={0.1} />
               </linearGradient>
 
-              {/* 🟢 Green Gradient (Low) */}
+              {/* 🔵 Blue Gradient (Low) - Changed from Green */}
               <linearGradient id="colorLow" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#22c55e" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#22c55e" stopOpacity={0.1} />
+                <stop offset="5%" stopColor="#0EA5E9" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#0EA5E9" stopOpacity={0.1} />
               </linearGradient>
             </defs>
 
@@ -102,8 +102,8 @@ export default function AnomalyAreaChart({ data }) {
               tick={{ fontSize: 12, fill: "#6b7280" }}
               label={{
                 value: "Time",
-                position: "bottom", // ✅ place outside instead of inside
-                offset: 10, // ✅ spacing between ticks and label
+                position: "bottom",
+                offset: 10,
                 style: { fontSize: 16, fill: "#374151", fontWeight: 600 },
               }}
             />
@@ -115,7 +115,12 @@ export default function AnomalyAreaChart({ data }) {
                 value: "Error Count",
                 angle: -90,
                 position: "insideLeft",
-                style: { textAnchor: "middle", fontSize: 16, fill: "#374151", fontWeight: 600 },
+                style: {
+                  textAnchor: "middle",
+                  fontSize: 16,
+                  fill: "#374151",
+                  fontWeight: 600,
+                },
               }}
             />
 
@@ -126,7 +131,7 @@ export default function AnomalyAreaChart({ data }) {
               type="monotone"
               dataKey="low"
               stackId="1"
-              stroke="#22c55e"
+              stroke="#0EA5E9" // ✅ Changed from green to blue
               fill="url(#colorLow)"
             />
             <Area
