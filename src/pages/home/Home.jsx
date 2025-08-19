@@ -12,8 +12,6 @@ export default function Home() {
           <Header onAddApplicationClick={() => setIsModalOpen(true)} />
 
           <HealthCardGrid />
-          <LoginPage></LoginPage>
-          <SignupPage></SignupPage>
         </MainLayout>
       </div>
     </>
