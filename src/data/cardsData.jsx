@@ -1,5 +1,4 @@
 import { Flag, AlertTriangle, OctagonAlert } from "lucide-react";
-
 export const cardsData = [
   {
     id: 1,
@@ -7,7 +6,7 @@ export const cardsData = [
     team_name: "Data Analytics Team",
     app_name: "Analytics Platform Service",
     mins_ago: 5,
-    tool: "Grafana",
+    tools: ["Grafana", "Prometheus"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 11 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 7 },
@@ -20,7 +19,7 @@ export const cardsData = [
     team_name: "AI Ops Team",
     app_name: "Machine Learning Engine",
     mins_ago: 12,
-    tool: "Datadog",
+    tools: ["Datadog", "Splunk"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 5 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 4 },
@@ -33,7 +32,7 @@ export const cardsData = [
     team_name: "Backend Services",
     app_name: "UI Dashboard Application",
     mins_ago: 8,
-    tool: "Datadog",
+    tools: ["Datadog", "Grafana"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 6 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 3 },
@@ -46,7 +45,7 @@ export const cardsData = [
     team_name: "Cloud Infrastructure",
     app_name: "Kubernetes Cluster Manager",
     mins_ago: 14,
-    tool: "Prometheus",
+    tools: ["Prometheus", "AppDynamics"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 9 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 6 },
@@ -59,7 +58,7 @@ export const cardsData = [
     team_name: "Frontend Development",
     app_name: "React Component Library",
     mins_ago: 3,
-    tool: "Splunk",
+    tools: ["Splunk"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 2 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 1 },
@@ -72,7 +71,7 @@ export const cardsData = [
     team_name: "Security Team",
     app_name: "React Component Library",
     mins_ago: 20,
-    tool: "AppDynamics",
+    tools: ["AppDynamics", "Datadog"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 12 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 5 },
@@ -85,7 +84,7 @@ export const cardsData = [
     team_name: "DevOps Team",
     app_name: "PostgreSQL Cluster Service",
     mins_ago: 6,
-    tool: "Grafana",
+    tools: ["Grafana"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 4 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 2 },
@@ -98,7 +97,7 @@ export const cardsData = [
     team_name: "Database Admins",
     app_name: "PostgreSQL Cluster Service",
     mins_ago: 15,
-    tool: "Prometheus",
+    tools: ["Prometheus", "Splunk"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 7 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 4 },
@@ -111,7 +110,7 @@ export const cardsData = [
     team_name: "Network Operations",
     app_name: "Firewall Monitoring Tool",
     mins_ago: 10,
-    tool: "AppDynamics",
+    tools: ["AppDynamics", "Grafana"],
     alerts: [
       { name: "low", icon: <Flag size={14} />, errCount: 5 },
       { name: "med", icon: <AlertTriangle size={14} />, errCount: 3 },

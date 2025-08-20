@@ -1,5 +1,4 @@
 "use client";
-
 import {
   AudioWaveform,
   BookOpen,
@@ -38,16 +37,16 @@ const data = {
       logo: GalleryVerticalEnd,
       plan: "Software and Development",
     },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
+    // {
+    //   name: "Acme Corp.",
+    //   logo: AudioWaveform,
+    //   plan: "Startup",
+    // },
+    // {
+    //   name: "Evil Corp.",
+    //   logo: Command,
+    //   plan: "Free",
+    // },
   ],
   navMain: [
     {
