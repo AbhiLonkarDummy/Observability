@@ -40,7 +40,7 @@ export default function CodeAnalysisView() {
       </div>
 
       {/* Tab Content */}
-      <div className="mt-1 text-gray-700 text-sm">
+      <div className="text-gray-700 text-sm">
         {activeAnalysisTab === "directory" && (
           <div className="flex flex-col gap-4">
             <h1 className="text-lg font-semibold">Directory Structure</h1>

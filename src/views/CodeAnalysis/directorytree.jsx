@@ -1,40 +1,84 @@
 import { useState } from "react";
-import { Folder, FolderOpen, File } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Folder,
+  FolderOpen,
+  FileCode,
+  FileJson,
+  FileText,
+  FileSpreadsheet,
+  FileType,
+  Star,
+} from "lucide-react";
+
+// Function to return a color-coded icon for files
+const getFileIcon = (name) => {
+  const lowerName = name.toLowerCase();
+  const ext = lowerName.split(".").pop();
+
+  // Special icon for favicon
+  if (lowerName === "favicon.ico") {
+    return <Star className="text-yellow-400" size={18} />;
+  }
+
+  switch (ext) {
+    case "js":
+    case "jsx":
+      return <FileCode className="text-green-500" size={18} />;
+    case "json":
+      return <FileJson className="text-orange-500" size={18} />;
+    case "html":
+    case "css":
+      return <FileText className="text-blue-400" size={18} />;
+    case "md":
+      return <FileText className="text-purple-500" size={18} />;
+    case "test":
+    case "test.js":
+      return <FileSpreadsheet className="text-pink-400" size={18} />;
+    default:
+      return <FileType className="text-gray-500" size={18} />;
+  }
+};
 
 const TreeNode = ({ node }) => {
-  // Expand by default if there are children
-  const [isOpen, setIsOpen] = useState(
-    node.children && node.children.length > 0
-  );
   const hasChildren = node.children && node.children.length > 0;
+  const [isOpen, setIsOpen] = useState(hasChildren);
 
   return (
     <div className="ml-4">
-      {/* Folder or file line */}
       <div
-        className="flex items-center gap-2 cursor-pointer text-gray-800 hover:text-blue-600"
+        className="flex items-center gap-2 cursor-pointer hover:bg-gray-200 p-1 rounded transition-colors"
         onClick={() => hasChildren && setIsOpen(!isOpen)}
       >
+        {/* Folder or file */}
         {hasChildren ? (
           isOpen ? (
-            <FolderOpen size={16} />
+            <FolderOpen className="text-yellow-500" size={18} />
           ) : (
-            <Folder size={16} />
+            <Folder className="text-yellow-500" size={18} />
           )
         ) : (
-          <File size={16} />
+          getFileIcon(node.name)
         )}
         <span className="text-sm">{node.name}</span>
       </div>
 
-      {/* Children */}
-      {hasChildren && isOpen && (
-        <div className="ml-4 border-l border-gray-300 pl-2">
-          {node.children.map((child, idx) => (
-            <TreeNode key={idx} node={child} />
-          ))}
-        </div>
-      )}
+      {/* Animated children */}
+      <AnimatePresence>
+        {hasChildren && isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="ml-4 border-l border-gray-300 pl-2"
+          >
+            {node.children.map((child, idx) => (
+              <TreeNode key={idx} node={child} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -51,7 +95,7 @@ const DirectoryTree = () => {
           name: "public",
           children: [
             { name: "index.html" },
-            { name: "favicon.ico" },
+            { name: "favicon.ico" }, // Special icon applied here
             { name: "robots.txt" },
           ],
         },
@@ -107,7 +151,7 @@ const DirectoryTree = () => {
   ];
 
   return (
-    <div className="bg-white  font-mono text-sm">
+    <div className="bg-gray-100 p-4 rounded-md font-mono text-sm overflow-auto border">
       {data.map((node, index) => (
         <TreeNode key={index} node={node} />
       ))}
