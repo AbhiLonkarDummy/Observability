@@ -16,8 +16,15 @@ export default function GeneralInfo({ data }) {
         </div>
 
         {/* Right: Tool Pill */}
-        <div className="flex items-center gap-2 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
-          <span className="text-md font-medium text-gray-700">{data.tool}</span>
+        <div className="flex flex-row flex-wrap items-center gap-2">
+          {(data.tools ?? []).map((tool, index) => (
+            <div
+              key={`${data.id}-tool-${index}`}
+              className="flex items-center gap-2 bg-gray-100 border border-gray-200 rounded-full px-3 py-1"
+            >
+              <span className="text-md font-medium text-gray-700">{tool}</span>
+            </div>
+          ))}
         </div>
       </div>
       <Separator className="my-2" />
